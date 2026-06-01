@@ -58,8 +58,8 @@ All options live in the `CONFIG` block at the top of the script
 | Option | Default | What it does |
 | --- | --- | --- |
 | `dragButton` | `1` | Mouse button to drag with: `0` left, `1` middle, `2` right |
-| `dragMultiplier` | `1.0` | Drag speed. Higher number scrolls faster than the hand moves |
-| `flickMultiplier` | `1.0` | Scales **momentum/flick** speed only, independent of the active drag speed |
+| `dragMultiplier` | `1.5` | Drag speed. Higher number scrolls faster than the hand moves |
+| `flickMultiplier` | `1.5` | Scales **momentum/flick** speed only, independent of the active drag speed |
 | `dragThreshold` | `3` | Pixels of movement before a press counts as a drag vs. a click (Do not adjust this unless you have a super high DPI monitor) |
 | `momentumMultiplier` | `900` | Glide length: ms of coast per unit of flick speed. Higher = longer coast |
 | `minMomentumSpeed` | `0.02` | px/ms. Flicks slower than this just stop with no momentum coast |
