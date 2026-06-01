@@ -7,6 +7,7 @@
 // https://addons.mozilla.org/firefox/addon/scroll_anywhere/
 // GRAB_AND_DRAG mode + the UNIFORM momentum forumla (simpler than exponential decay. Because damn, am I bad at math)
 
+
 (function () {
   "use strict";
 

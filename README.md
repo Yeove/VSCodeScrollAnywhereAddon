@@ -6,11 +6,27 @@ This extension enables middle mouse **grab-and-drag** scrolling with **momentum*
 <br>
 <br>Inspired by the [ScrollAnywhere](https://addons.mozilla.org/firefox/addon/scroll_anywhere/) Firefox extension
 
+<br><a href="README FILES/vscode-scrollanywhere-demo.gif" target="_blank">
+  <img src="README FILES/vscode-scrollanywhere-demo.gif" alt="VSCode Scroll Anywhere Addon Demo" width="600">
+</a>
+
 ## Requirements
 
 - [VSCode](https://code.visualstudio.com/) - or VSCodium
 - [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) VSCode extension
 
+## Overview
+
+```mermaid
+flowchart LR
+    subgraph ThisRepo["This Repo"]
+        A["scroll-anywhere-vscode.js"]
+    end
+      B["Custom CSS and JS Loader"]
+      C["VSCode"]
+    A --> B
+    B --> C
+```
 ## Installation
 
 1. **Install the loader in VSCode.**
