@@ -29,15 +29,16 @@ flowchart LR
 ```
 ## Installation
 
-1. **Install the loader in VSCode.**
+1. **Install the Custom CSS and JS Loader Extension in VSCode.**
    <br>In VSCode, open Extensions and install
    *Custom CSS and JS Loader* (`be5invis.vscode-custom-css`)
 
-2. **Save the script from this repo** in your VSCode home folder:
+2. **Save the scroll-anywhere-vscode.js script from this repo in your VSCode extensions folder**
    - macOS / Linux: `~/.vscode/scroll-anywhere-vscode.js`
    - Windows: `C:\Users\<you>\.vscode\extensions\scroll-anywhere-vscode.js`
 
-3. **Point the loader at the script.** Open your `settings.json`
+3. **Point the Custom CSS loader at the script.** 
+   <br>Open your `settings.json`
    <br>**Command Palette `Ctrl + Shift + P` → Preferences: Open User Settings (JSON)** and add these lines of code:
 
    ```jsonc
