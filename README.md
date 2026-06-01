@@ -1,6 +1,6 @@
 # Scroll Anywhere for VSCode
 
-Middle mouse **grab-and-drag** scrolling with **momentum** for VSCode
+This extension enables middle mouse **grab-and-drag** scrolling with **momentum**
 <br>Flick the editor to scroll and let it coast to a stop, the same way you scroll on a phone or tablet
 <br>Works in the editor, the sidebar, panels, and other scrollable lists
 <br>
