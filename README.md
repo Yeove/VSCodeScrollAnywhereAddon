@@ -16,6 +16,12 @@ This extension enables middle mouse **grab-and-drag** scrolling with **momentum*
 - [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) VSCode extension
 
 ## Overview
+⚠️ This is not a VSCode Marketplace extension since it works by injecting code
+
+VS Code's extension API doesn't expose editor mouse events or pixel-level
+scrolling, so this behavior was impossible to implement as a normal `.vsix` extension
+<br>Instead, this is a **userscript** that runs inside the VSCode window via the
+**Custom CSS and JS Loader** extension, which injects a JavaScript file into the editor like so:
 
 ```mermaid
 flowchart LR
@@ -27,6 +33,15 @@ flowchart LR
     A --> B
     B --> C
 ```
+
+That has real consequences you should understand before installing:
+
+- It works by patching VSCode's core files, which is **unsupported by Microsoft**
+- VSCode will show a **"Your Code installation is corrupt"** warning after you
+  enable it. This is expected, dismissable, and does not mean anything is broken.
+- You must **re-enable it after every VSCode update**, because updates restore
+  the patched files
+
 ## Installation
 
 1. **Install the Custom CSS and JS Loader Extension in VSCode.**
@@ -59,7 +74,7 @@ flowchart LR
 
 ## Recommended VSCode settings
 
-Set these two settings in `settings.json`:
+To improve the feel of using this addon, set these two settings in `settings.json`:
 
 ```jsonc
 "editor.smoothScrolling": false,       
@@ -83,16 +98,6 @@ All options live in the `CONFIG` block at the top of the script
 | `useCoalesced` | `true` | Use high-frequency sub-frame pointer samples (`getCoalescedEvents`) for a cleaner velocity estimate on high-Hz mice. Set `false` if it misbehaves.|
 | `onlyInScrollables` | `true` | Restrict dragging to `.monaco-scrollable-element` panes |
 
-### Tuning tips
-
-- **Want faster flicks but keep 1:1 grab?** Leave `dragMultiplier: 1.0`, raise
-  `flickMultiplier`
-- **Coast too long / too short?** Adjust `momentumMultiplier`. Note, coast distance
-  grows faster when adjusting flick speed, since glide duration scales non-linerally
-  with speed
-- **Flick feels twitchy or imprecise?** Adjust `flickWindowMs` - ~30 ms is snappier,
-  ~80 ms is smoother. This plugin has high-Hz mouse sampling via `getCoalescedEvents` which helps responsivness at shorter windows
-
 ## How it works
 
 VS Code's editor (Monaco) is **virtualized**: line elements are recycled as they
@@ -108,21 +113,6 @@ script:
    the flick should feel identical at any refresh rate
 4. Applies **uniformly decelerated** momentum - `x(t) = v₀·t − ½·a·t²`, with
    velocity falling linearly to exactly zero
-
-## ⚠️ This is not a VSCode Marketplace extension since it works by injecting code
-
-VS Code's extension API doesn't expose editor mouse events or pixel-level
-scrolling, so this behavior is impossible to ship as a normal `.vsix` extension
-<br>Instead, this is a **userscript** that runs inside the VSCode window via the
-**Custom CSS and JS Loader** extension, which injects JS into the workbench
-
-That has real consequences you should understand before installing:
-
-- It works by patching VSCode's core files, which is **unsupported by Microsoft**
-- VSCode will show a **"Your Code installation is corrupt"** warning after you
-  enable it. This is expected, dismissable, and does not mean anything is broken.
-- You must **re-enable it after every VSCode update**, because updates restore
-  the patched files
 
 ## Troubleshooting
 
