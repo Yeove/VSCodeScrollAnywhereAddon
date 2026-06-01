@@ -8,7 +8,7 @@ Middle mouse **grab-and-drag** scrolling with **momentum** for VSCode
 
 ## Requirements
 
-- [VSCode](https://code.visualstudio.com/) - or VSCodium
+- [VSCode](https://code.visualstudio.com/) - or [VSCodium](https://vscodium.com/)
 - [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) VSCode extension
 
 ## Installation
