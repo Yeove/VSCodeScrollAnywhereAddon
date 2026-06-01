@@ -30,7 +30,6 @@ This extension enables middle mouse **grab-and-drag** scrolling with **momentum*
      "file:///home/you/.vscode/extensions/scroll-anywhere-vscode.js"
    ]
    ```
-
    ```jsonc
    // Windows - note the forward slashes, since VSCode loads stuff as an HTML path.
    "vscode_custom_css.imports": [
