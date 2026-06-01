@@ -27,14 +27,14 @@ This extension enables middle mouse **grab-and-drag** scrolling with **momentum*
    ```jsonc
    // macOS / Linux
    "vscode_custom_css.imports": [
-     "file:///home/you/.vscode/scroll-anywhere-vscode.js"
+     "file:///home/you/.vscode/extensions/scroll-anywhere-vscode.js"
    ]
    ```
 
    ```jsonc
    // Windows - note the forward slashes, since VSCode loads stuff as an HTML path.
    "vscode_custom_css.imports": [
-     "file:///C:/Users/you/.vscode/scroll-anywhere-vscode.js"
+     "file:///C:/Users/you/.vscode/extensions/scroll-anywhere-vscode.js"
    ]
    ```
 
