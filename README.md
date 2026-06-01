@@ -1,14 +1,14 @@
 # Scroll Anywhere for VSCode
 
+<br><a href="README FILES/vscode-scrollanywhere-demo.gif" target="_blank">
+  <img src="README FILES/vscode-scrollanywhere-demo.gif" alt="VSCode Scroll Anywhere Addon Demo" width="600">
+</a>
+
 This extension enables middle mouse **grab-and-drag** scrolling with **momentum** inside VSCode
 <br>Flick the editor to scroll and let it coast to a stop, the same way you scroll on a phone or tablet
 <br>Works in the editor, the sidebar, panels, and other scrollable lists
 <br>
 <br>Inspired by the [ScrollAnywhere](https://addons.mozilla.org/firefox/addon/scroll_anywhere/) Firefox extension
-
-<br><a href="README FILES/vscode-scrollanywhere-demo.gif" target="_blank">
-  <img src="README FILES/vscode-scrollanywhere-demo.gif" alt="VSCode Scroll Anywhere Addon Demo" width="600">
-</a>
 
 ## Requirements
 
@@ -22,7 +22,7 @@ flowchart LR
     subgraph ThisRepo["This Repo"]
         A["scroll-anywhere-vscode.js"]
     end
-      B["Custom CSS and JS Loader"]
+      B["Custom CSS and JS Loader<br>Extension"]
       C["VSCode"]
     A --> B
     B --> C
