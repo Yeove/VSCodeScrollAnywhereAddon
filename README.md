@@ -79,6 +79,7 @@ To improve the feel of using this addon, set these two settings in `settings.jso
 ```jsonc
 "editor.smoothScrolling": false,             // Keep this set to false, since it interferes with mouse momentum settings
 "editor.mouseWheelScrollSensitivity": 1      // Keep this set to 1, since the scroll-anywhere-vscode.js file has better ways to modify this
+```
 
 ## Configuration
 
