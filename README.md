@@ -16,7 +16,7 @@ This extension enables middle mouse **grab-and-drag** scrolling with **momentum*
 - [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) VSCode extension
 
 ## Overview
-⚠️ This is not a VSCode Marketplace extension since it works by injecting code
+This is not a VSCode Marketplace extension since it works by injecting code
 
 VS Code's extension API doesn't expose editor mouse events or pixel-level
 scrolling, so this behavior was impossible to implement as a normal `.vsix` extension
@@ -77,9 +77,8 @@ That has real consequences you should understand before installing:
 To improve the feel of using this addon, set these two settings in `settings.json`:
 
 ```jsonc
-"editor.smoothScrolling": false,       
-"editor.mouseWheelScrollSensitivity": 1
-```
+"editor.smoothScrolling": false,             // Keep this set to false, since it interferes with mouse momentum settings
+"editor.mouseWheelScrollSensitivity": 1      // Keep this set to 1, since the scroll-anywhere-vscode.js file has better ways to modify this
 
 ## Configuration
 
@@ -127,5 +126,5 @@ script:
 ## Uninstalling
 
 1. Command Palette → *Disable Custom CSS and JS*.
-2. Remove the entry from `vscode_custom_css.imports` in `settings.json`.
+2. Remove the entry from the `"vscode_custom_css.imports"` row inside `settings.json`.
 3. Optionally uninstall the Custom CSS and JS Loader extension.
