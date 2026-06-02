@@ -84,7 +84,7 @@ To improve the feel of using this addon, set these two settings in `settings.jso
 ## Configuration
 
 All options live in the `CONFIG` block at the top of the script
-<br>To edit them, make a change in the `scroll-anywhere-vscode.js` file, save, then run **Command Palette `Ctrl + Shift + P` → Reload Custom CSS and JS → Restart Visual Studio Code** to apply
+<br>To edit them, make a change in the `scroll-anywhere-vscode.js` file, save, then run <br>**Command Palette `Ctrl + Shift + P` → Reload Custom CSS and JS → Restart Visual Studio Code** to apply
 
 | Option | Default | What it does |
 | --- | --- | --- |
