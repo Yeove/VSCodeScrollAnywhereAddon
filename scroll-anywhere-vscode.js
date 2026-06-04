@@ -63,8 +63,8 @@
     const scrollable = e.target.closest && e.target.closest(".monaco-scrollable-element");
     if (CONFIG.onlyInScrollables && !scrollable) return;
     stopMomentum();
-    // Aim at the stable scroll container, not the line node under the cursor:
-    // vertical scrolling recycles/detaches line DOM, which would silently kill
+    // Aim at the stable scroll container, not the line node under the cursor (whoops)
+    // since vertical scrolling recycles/detaches line DOM, which would silently kill
     // momentum mid-coast. The scrollable container persists.
     target = scrollable || e.target;
     active = true;
@@ -72,9 +72,9 @@
     lastX = e.screenX;
     lastY = e.screenY;
     samples = [];
-    e.preventDefault();    // suppress native middle-click autoscroll/paste
+    e.preventDefault();    // suppress native middle-click, or autoscroll/paste for linux
     e.stopPropagation();
-    // pointermove gives us getCoalescedEvents(); mouseup is fine for release.
+    // pointermove gives us getCoalescedEvents(); mouseup is fine for release?
     window.addEventListener("pointermove", onPointerMove, true);
     window.addEventListener("mouseup", onMouseUp, true);
   };
@@ -92,7 +92,7 @@
     if (!dragging && Math.hypot(dx, dy) < CONFIG.dragThreshold) return;
     dragging = true;
 
-    // Velocity, though it wants the fine-grained sub-frame trail when available.
+    // Velocity, though it wants the fine-grained sub-frame trail when available which is preferred for high-Hz mice for ye old' gamers sake. The coarse event is still useful as a fallback
     const fine = CONFIG.useCoalesced && e.getCoalescedEvents ? e.getCoalescedEvents() : null;
     if (fine && fine.length) {
       for (const ce of fine) recordSample(ce.screenX, ce.screenY, ce.timeStamp);
@@ -108,7 +108,7 @@
     window.removeEventListener("mouseup", onMouseUp, true);
     active = false;
     if (dragging) {
-      // Eat the auxclick that a middle release fires, so mouse flick doesn't paste.
+      // Eats the auxclick that a middle release fires, this way mouse flick doesn't paste.
       const swallow = (ev) => { ev.preventDefault(); ev.stopPropagation(); };
       window.addEventListener("auxclick", swallow, { capture: true, once: true });
       startMomentum();
@@ -116,8 +116,7 @@
     dragging = false;
   };
 
-  // Raw hand velocity (px/ms per axis) over the sample window: net displacement
-  // divided by net time. Endpoint-based, so it's rate-independent and self-smoothing.
+  // Raw hand velocity (px/ms per axis) over the sample window: net displacement divided by net time. Endpoint-based, so it's rate-independent and self-smoothing.
   const flickVelocity = () => {
     if (samples.length < 2) return [0, 0];
     const a = samples[0];
@@ -128,10 +127,10 @@
   };
 
   // UNIFORM momentum: displacement x(t) = v0*t - 0.5*a*t^2, with a = v0/duration,
-  // so velocity falls linearly to exactly zero at t = duration.
+  // so velocity falls linearly to exactly zero @ t = duration.
   const startMomentum = () => {
     const [rawX, rawY] = flickVelocity();
-    const dragVX = rawX * CONFIG.dragMultiplier;   // match the on-screen drag speed
+    const dragVX = rawX * CONFIG.dragMultiplier;   // match the on-screen drag speed, or that's what it's supposed to do, but feels slower?
     const dragVY = rawY * CONFIG.dragMultiplier;
     if (Math.hypot(dragVX, dragVY) < CONFIG.minMomentumSpeed) return;
 
