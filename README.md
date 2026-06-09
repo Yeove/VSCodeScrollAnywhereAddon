@@ -17,10 +17,7 @@ This extension enables middle mouse **grab-and-drag** scrolling with **momentum*
 
 ## Overview
 This is not a VSCode Marketplace extension since it works by injecting code
-
-VS Code's extension API doesn't expose editor mouse events or pixel-level
-scrolling, so this behavior was impossible to implement as a normal `.vsix` extension
-<br>Instead, this is a **userscript.js** that runs inside the VSCode window via the
+<br>This is a **userscript.js** that runs inside the VSCode window via the
 **Custom CSS and JS Loader** extension, which injects a JavaScript file into the editor like so:
 
 ```mermaid
