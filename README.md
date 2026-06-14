@@ -30,7 +30,7 @@ flowchart LR
     B --> C
 ```
 
-That has consequences you should understand before installing:
+This has consequences you should understand before installing:
 
 - It works by patching VSCode's core files, which is **unsupported by Microsoft**
 - VSCode will show a **"Your Code installation is corrupt"** warning after you
