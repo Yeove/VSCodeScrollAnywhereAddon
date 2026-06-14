@@ -16,7 +16,6 @@ This extension enables middle mouse **grab-and-drag** scrolling with **momentum*
 - [Custom CSS and JS Loader](https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css) VSCode extension
 
 ## Overview
-This is not a VSCode Marketplace extension since it works by injecting code
 <br>This is a **userscript.js** that runs inside the VSCode window via the
 **Custom CSS and JS Loader** extension, which injects a JavaScript file into the editor like so:
 
